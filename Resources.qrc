@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>Resources/img/CaseSheet.svg</file>
+        <file>Resources/img/doctor.svg</file>
+        <file>Resources/img/Hospital.svg</file>
+        <file>Resources/img/login.svg</file>
+        <file>Resources/img/logout.svg</file>
+        <file>Resources/img/NewPatient.svg</file>
+        <file>Resources/img/OpenPatinet.svg</file>
+        <file>Resources/img/Search.svg</file>
+        <file>Resources/img/settings.svg</file>
+        <file>Resources/img/Signup.svg</file>
+    </qresource>
+</RCC>
