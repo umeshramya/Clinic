@@ -17,12 +17,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     Classes/dataconnection.cpp \
+    Source/SQL.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     Classes/dataconnection.h \
+    Source/SQL.h \
     login.h \
     mainwindow.h
 
