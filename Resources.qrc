@@ -10,5 +10,6 @@
         <file>Resources/img/Search.svg</file>
         <file>Resources/img/settings.svg</file>
         <file>Resources/img/Signup.svg</file>
+        <file>Resources/img/forgot.svg</file>
     </qresource>
 </RCC>

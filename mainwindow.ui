@@ -13,21 +13,7 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>120</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
-   </widget>
-  </widget>
+  <widget class="QWidget" name="centralwidget"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
@@ -37,9 +23,57 @@
      <height>22</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuUser">
+    <property name="title">
+     <string>User</string>
+    </property>
+    <addaction name="actionLogin"/>
+    <addaction name="actionSignUp"/>
+    <addaction name="actionForgot_Password"/>
+    <addaction name="actionQuit"/>
+   </widget>
+   <addaction name="menuUser"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionLogin">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/icons/Resources/img/login.svg</normaloff>:/icons/Resources/img/login.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Login</string>
+   </property>
+  </action>
+  <action name="actionSignUp">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/icons/Resources/img/NewPatient.svg</normaloff>:/icons/Resources/img/NewPatient.svg</iconset>
+   </property>
+   <property name="text">
+    <string>SignUp</string>
+   </property>
+  </action>
+  <action name="actionForgot_Password">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/icons/Resources/img/forgot.svg</normaloff>:/icons/Resources/img/forgot.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Forgot Password</string>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/icons/Resources/img/logout.svg</normaloff>:/icons/Resources/img/logout.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Quit</string>
+   </property>
+  </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="Resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

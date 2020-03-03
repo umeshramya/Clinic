@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "Classes/dataconnection.h"
+#include "login.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -15,8 +16,16 @@ MainWindow::~MainWindow()
 }
 
 
-void MainWindow::on_pushButton_clicked()
+
+
+void MainWindow::on_actionLogin_triggered()
 {
-    DataConnection db;
-    db.openConnection();
+    Login login;
+    login.setModal(true);
+    login.exec();
+}
+
+void MainWindow::on_actionQuit_triggered()
+{
+    QApplication::quit();
 }
