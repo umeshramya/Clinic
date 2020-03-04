@@ -4,7 +4,9 @@
 
 namespace SQL {
 
-QString LoginUser();//this is for login user with username and password argument;
+ QString LoginUser();//this is for login user with username and password argument;
+ QString CreatUser();
+ QString EditUser();
 
 }
 

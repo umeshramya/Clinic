@@ -9,7 +9,6 @@ DataConnection::DataConnection()
 QSqlDatabase DataConnection::openConnection(){
     if(!this->db.isOpen()){
         this->db.setDatabaseName("D:/ClinicRecords/ClinicRecords/Database/clinicrecords.db");
-        qDebug() << QCoreApplication::applicationDirPath();
         if(!this->db.open()){
             qDebug() << this->db.lastError().text();
         }
