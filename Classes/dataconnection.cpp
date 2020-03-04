@@ -1,4 +1,5 @@
 #include "dataconnection.h"
+#include "Classes/settings.h"
 
 
 DataConnection::DataConnection()
@@ -8,12 +9,14 @@ DataConnection::DataConnection()
 
 QSqlDatabase DataConnection::openConnection(){
     if(!this->db.isOpen()){
-        this->db.setDatabaseName("D:/ClinicRecords/ClinicRecords/Database/clinicrecords.db");
+        Settings setting;
+        this->db.setDatabaseName(setting.getDataBaseConnectionString());
         if(!this->db.open()){
             qDebug() << this->db.lastError().text();
         }
-        return db;
+
     }
+    return db;
 }
 
 void DataConnection::closeConnection(){
