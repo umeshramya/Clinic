@@ -25,10 +25,6 @@ void Login::on_pushButton_Login_clicked()
     QString password = ui->lineEdit_password->text();
     QString sql =  SQL::LoginUser();
 
-
-
-
-
     DataConnection Conn;
     QSqlDatabase db = Conn.openConnection();
     QSqlQuery q;
@@ -50,7 +46,7 @@ void Login::on_pushButton_Login_clicked()
 
     }
 
-
+    Conn.closeConnection();
 }
 
 void Login::on_pushButton_quit_clicked()

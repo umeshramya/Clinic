@@ -22,6 +22,8 @@ private slots:
 
     void on_actionQuit_triggered();
 
+    void on_actionSignUp_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "Classes/dataconnection.h"
 #include "login.h"
+#include "newuser.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -28,4 +29,11 @@ void MainWindow::on_actionLogin_triggered()
 void MainWindow::on_actionQuit_triggered()
 {
     QApplication::quit();
+}
+
+void MainWindow::on_actionSignUp_triggered()
+{
+    NewUser newUser;
+    newUser.setModal(true);
+    newUser.exec();
 }

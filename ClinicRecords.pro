@@ -24,7 +24,9 @@ SOURCES += \
     Source/SQL.cpp \
     login.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    newuser.cpp \
+    settings.cpp
 
 HEADERS += \
     Classes/dataconnection.h \
@@ -34,11 +36,15 @@ HEADERS += \
     Classes/user.h \
     Source/SQL.h \
     login.h \
-    mainwindow.h
+    mainwindow.h \
+    newuser.h \
+    settings.h
 
 FORMS += \
     login.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    newuser.ui \
+    settings.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
