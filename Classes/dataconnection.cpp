@@ -8,9 +8,10 @@ DataConnection::DataConnection()
 }
 
 QSqlDatabase DataConnection::openConnection(){
+    Settings set;
     if(!this->db.isOpen()){
-        Settings setting;
-        this->db.setDatabaseName(setting.getDataBaseConnectionString());
+
+        this->db.setDatabaseName(set.getDataBaseConnectionString());
         if(!this->db.open()){
             qDebug() << this->db.lastError().text();
         }

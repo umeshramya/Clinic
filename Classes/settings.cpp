@@ -37,6 +37,6 @@ Settings::Settings()
 }
 
 
-QString Settings::DataBaseConnectionString= "D:/ClinicRecords/ClinicRecords/Database/clinicrecords.db";
-QString Settings::TemplateFolderPath = QDir::homePath() + "/ClinicRecords/Template";
+QString Settings::DataBaseConnectionString = QString("D:/ClinicRecords/ClinicRecords/Database/clinicrecords.db");
+QString Settings::TemplateFolderPath =QString(QDir::homePath() + "/ClinicRecords/Template");
 int Settings::LetterPadHeaderHeight =7;

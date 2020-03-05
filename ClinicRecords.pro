@@ -26,7 +26,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     newuser.cpp \
-    settings.cpp
+
 
 HEADERS += \
     Classes/dataconnection.h \
@@ -38,13 +38,12 @@ HEADERS += \
     login.h \
     mainwindow.h \
     newuser.h \
-    settings.h
+
 
 FORMS += \
     login.ui \
     mainwindow.ui \
-    newuser.ui \
-    settings.ui
+    newuser.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
