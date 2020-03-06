@@ -24,17 +24,17 @@ void Login::on_pushButton_Login_clicked()
 {
     User user;
     Role role;
-    QSqlQuery query;
+
     DataConnection Conn;
     QSqlDatabase db = Conn.openConnection();
 
     try {
-        qDebug() << db.isOpen();
+
         QString userName = ui->lineEdit_userName->text();
         QString password = ui->lineEdit_password->text();
         QString sql =  SQL::LoginUser();
 
-
+        QSqlQuery query;
         query.prepare(sql);
         query.bindValue(":username", userName);
         query.bindValue(":password", password);
@@ -56,7 +56,7 @@ void Login::on_pushButton_Login_clicked()
 
         }
 
-//        Conn.closeConnection();
+        Conn.closeConnection();
         Login::close();
 
     } catch (QString error) {
