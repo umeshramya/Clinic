@@ -13,7 +13,7 @@ QSqlDatabase DataConnection::openConnection(){
 
         this->db.setDatabaseName(set.getDataBaseConnectionString());
         if(!this->db.open()){
-            qDebug() << this->db.lastError().text();
+            throw this->db.lastError().text();
         }
 
     }

@@ -2,7 +2,9 @@
 #include "ui_login.h"
 #include "Classes/dataconnection.h"
 #include "Source/SQL.h"
+#include "Classes/role.h"
 #include "Classes/user.h"
+#include "QMessageBox"
 
 
 
@@ -21,32 +23,46 @@ Login::~Login()
 void Login::on_pushButton_Login_clicked()
 {
     User user;
-    QString userName = ui->lineEdit_userName->text();
-    QString password = ui->lineEdit_password->text();
-    QString sql =  SQL::LoginUser();
-
+    Role role;
+    QSqlQuery query;
     DataConnection Conn;
     QSqlDatabase db = Conn.openConnection();
-    QSqlQuery q;
-    q.prepare(sql);
-    q.bindValue(":username", userName);
-    q.bindValue(":password", password);
-    q.exec();
-    while(q.next()){
-//id, username, name, email, mobile, address, is_doctor, is_active"
 
-        user.setId(q.value(0).toInt());
-        user.setUserName(q.value(1).toString());
-        user.setName(q.value(2).toString());
-        user.setEmail(q.value(3).toString());
-        user.setMobile(q.value(4).toString());
-        user.setAddress(q.value(5).toString());
-        user.setIsDoctor(q.value(6).toBool());
-        user.setIsActive(q.value(7).toBool());
+    try {
+        qDebug() << db.isOpen();
+        QString userName = ui->lineEdit_userName->text();
+        QString password = ui->lineEdit_password->text();
+        QString sql =  SQL::LoginUser();
 
+
+        query.prepare(sql);
+        query.bindValue(":username", userName);
+        query.bindValue(":password", password);
+        query.exec();
+        while(query.next()){
+            //id, username, name, email, mobile, address, is_doctor, is_active, role"
+
+            role.setCurRole(query.value(8).toString());
+
+            user.setId(query.value(0).toInt());
+            user.setUserName(query.value(1).toString());
+            user.setName(query.value(2).toString());
+            user.setEmail(query.value(3).toString());
+            user.setMobile(query.value(4).toString());
+            user.setAddress(query.value(5).toString());
+            user.setIsDoctor(query.value(6).toBool());
+            user.setIsActive(query.value(7).toBool());
+            user.setRole(query.value(8).toString());
+
+        }
+
+//        Conn.closeConnection();
+        Login::close();
+
+    } catch (QString error) {
+        QMessageBox::critical(this, "Invalid Login", error);
     }
 
-    Conn.closeConnection();
 }
 
 void Login::on_pushButton_quit_clicked()

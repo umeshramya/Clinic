@@ -5,7 +5,7 @@
 
 QString SQL::LoginUser()
 {
-     QString sql("SELECT id, username, name, email, mobile, address, is_doctor, is_active");
+     QString sql("SELECT id, username, name, email, mobile, address, is_doctor, is_active, role");
              sql.append(" FROM users WHERE users.username = :username AND users.password = :password AND is_active = true");
 
      return  sql;

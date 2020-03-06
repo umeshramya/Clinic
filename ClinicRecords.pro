@@ -19,6 +19,7 @@ SOURCES += \
     Classes/dataconnection.cpp \
     Classes/doctor.cpp \
     Classes/patient.cpp \
+    Classes/role.cpp \
     Classes/settings.cpp \
     Classes/user.cpp \
     Source/SQL.cpp \
@@ -32,6 +33,7 @@ HEADERS += \
     Classes/dataconnection.h \
     Classes/doctor.h \
     Classes/patient.h \
+    Classes/role.h \
     Classes/settings.h \
     Classes/user.h \
     Source/SQL.h \
