@@ -2,10 +2,7 @@
 #include "Classes/settings.h"
 
 
-DataConnection::DataConnection()
-{
 
-}
 
 QSqlDatabase DataConnection::openConnection(){
     Settings set;
@@ -23,3 +20,6 @@ QSqlDatabase DataConnection::openConnection(){
 void DataConnection::closeConnection(){
     db.close();
 }
+
+
+DataConnection *DataConnection::instance=0;

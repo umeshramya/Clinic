@@ -25,8 +25,8 @@ void Login::on_pushButton_Login_clicked()
     User user;
     Role role;
 
-    DataConnection Conn;
-    QSqlDatabase db = Conn.openConnection();
+//    DataConnection* Conn = DataConnection::getInstance();
+    QSqlDatabase db = DataConnection::getInstance()->openConnection();
 
     try {
 
@@ -41,7 +41,7 @@ void Login::on_pushButton_Login_clicked()
         query.exec();
         while(query.next()){
             //id, username, name, email, mobile, address, is_doctor, is_active, role"
-
+            QMessageBox::information(this, "", query.value(1).toString());
             role.setCurRole(query.value(8).toString());
 
             user.setId(query.value(0).toInt());
@@ -56,7 +56,7 @@ void Login::on_pushButton_Login_clicked()
 
         }
 
-        Conn.closeConnection();
+        DataConnection::getInstance()->closeConnection();
         Login::close();
 
     } catch (QString error) {

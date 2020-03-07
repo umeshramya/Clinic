@@ -6,9 +6,16 @@
 
 class DataConnection
 {
+  static DataConnection* instance;
+  DataConnection(){};
   QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
 public:
-    DataConnection();
+  static DataConnection* getInstance(){
+      if(!instance){
+          instance = new DataConnection;
+      }
+      return instance;
+  }
     QSqlDatabase openConnection();
     void closeConnection();
 };
