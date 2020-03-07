@@ -25,8 +25,7 @@ void Login::on_pushButton_Login_clicked()
     User user;
     Role role;
 
-//    DataConnection* Conn = DataConnection::getInstance();
-    QSqlDatabase db = DataConnection::getInstance()->openConnection();
+    DataConnection::getInstance()->openConnection();
 
     try {
 

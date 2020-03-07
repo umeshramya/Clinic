@@ -10,7 +10,7 @@ void Role::setCurRole(const QString &value)
     QString role = value;
     int foundRole = this->roles->indexOf(role);
     if(foundRole < 0){
-        throw "Invalid Role";
+        throw QString("Invalid Role");
     }else{
         this->curRole=role;
     }
