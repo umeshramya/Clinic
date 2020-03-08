@@ -34,6 +34,7 @@
     <addaction name="actionLogin"/>
     <addaction name="actionSignUp"/>
     <addaction name="actionForgot_Password"/>
+    <addaction name="actionSettings"/>
     <addaction name="actionQuit"/>
    </widget>
    <addaction name="menuUser"/>
@@ -73,6 +74,15 @@
    </property>
    <property name="text">
     <string>Quit</string>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/icons/Resources/img/settings.svg</normaloff>:/icons/Resources/img/settings.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Settings</string>
    </property>
   </action>
  </widget>

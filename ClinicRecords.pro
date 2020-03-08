@@ -23,6 +23,7 @@ SOURCES += \
     Classes/settings.cpp \
     Classes/user.cpp \
     Source/SQL.cpp \
+    frmsetting.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -37,12 +38,14 @@ HEADERS += \
     Classes/settings.h \
     Classes/user.h \
     Source/SQL.h \
+    frmsetting.h \
     login.h \
     mainwindow.h \
     newuser.h \
 
 
 FORMS += \
+    frmsetting.ui \
     login.ui \
     mainwindow.ui \
     newuser.ui
