@@ -3,19 +3,14 @@
 #include "QtSql"
 #include "QDebug"
 
-
+//Singleton class
 class DataConnection
 {
   static DataConnection* instance;
   DataConnection(){};
   QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
 public:
-  static DataConnection* getInstance(){
-      if(!instance){
-          instance = new DataConnection;
-      }
-      return instance;
-  }
+  static DataConnection* getInstance();
     QSqlDatabase openConnection();
     void closeConnection();
 };

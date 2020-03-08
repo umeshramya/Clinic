@@ -22,8 +22,8 @@ Login::~Login()
 
 void Login::on_pushButton_Login_clicked()
 {
-    User user;
-    Role role;
+
+
 
 
 
@@ -48,17 +48,18 @@ void Login::on_pushButton_Login_clicked()
         do{                 //loop of dataset
             //id, username, name, email, mobile, address, is_doctor, is_active, role"
 
-            role.setCurRole(query.value(8).toString());//set role and throw error if
+           Role::getInstance()->setCurRole(query.value(8).toString());//set role and throw error if
 
-            user.setId(query.value(0).toInt());//id
-            user.setUserName(query.value(1).toString());//userbname
-            user.setName(query.value(2).toString());//name
-            user.setEmail(query.value(3).toString());//email
-            user.setMobile(query.value(4).toString());//mobile
-            user.setAddress(query.value(5).toString());//address
-            user.setIsDoctor(query.value(6).toBool());//is_doctor
-            user.setIsActive(query.value(7).toBool());//is_active
-            user.setRole(query.value(8).toString());//role
+
+            User::getInstance()->setId(query.value(0).toInt());//id
+            User::getInstance()->setUserName(query.value(1).toString());//userbname
+            User::getInstance()->setName(query.value(2).toString());//name
+            User::getInstance()->setEmail(query.value(3).toString());//email
+            User::getInstance()->setMobile(query.value(4).toString());//mobile
+            User::getInstance()->setAddress(query.value(5).toString());//address
+            User::getInstance()->setIsDoctor(query.value(6).toBool());//is_doctor
+            User::getInstance()->setIsActive(query.value(7).toBool());//is_active
+            User::getInstance()->setRole(query.value(8).toString());//role
 
         }while(query.next());
 

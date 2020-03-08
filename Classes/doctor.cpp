@@ -2,6 +2,14 @@
 
 
 
+Doctor *Doctor::getInstance()
+{
+    if(!instance){
+        instance = new Doctor;
+    }
+    return instance;
+}
+
 QString Doctor::getName() const
 {
     return name;
@@ -52,14 +60,6 @@ void Doctor::setDepartment(const QString &value)
     department = value;
 }
 
-Doctor::Doctor()
-{
-    
-}
+Doctor* Doctor::instance=0;
 
 
-QString Doctor::name                = "";
-QString Doctor::qualification       = "";
-QString Doctor::registrationNumber  = "";
-QString Doctor::gender              = "";
-QString Doctor::department          = "";

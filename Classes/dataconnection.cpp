@@ -4,11 +4,19 @@
 
 
 
+DataConnection *DataConnection::getInstance()
+{
+  if(!instance){
+      instance = new DataConnection;
+  }
+  return instance;
+}
+
 QSqlDatabase DataConnection::openConnection(){
-    Settings set;
+
     if(!this->db.isOpen()){
 
-        this->db.setDatabaseName(set.getDataBaseConnectionString());
+        this->db.setDatabaseName(Settings::getInstance()->getDataBaseConnectionString());
         if(!this->db.open()){
             throw QString(this->db.lastError().text());
         }

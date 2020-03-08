@@ -20,6 +20,16 @@ void User::setUserName(const QString &value)
     userName = value;
 }
 
+QString User::getName() const
+{
+    return name;
+}
+
+void User::setName(const QString &value)
+{
+    name = value;
+}
+
 QString User::getEmail() const
 {
     return email;
@@ -80,28 +90,13 @@ void User::setIsActive(bool value)
     isActive = value;
 }
 
-QString User::getName()
+User *User::getInstance()
 {
-    return name;
+    if(!instance){
+        instance = new User;
+    }
+
+    return instance;
 }
 
-void User::setName(const QString &value)
-{
-    name = value;
-}
-
-User::User()
-{
-
-}
-
-
-int     User::id         = 0;
-QString User::userName   = "";
-QString User::name       = "";
-QString User::email      = "";
-QString User::mobile     = "";
-QString User::address    = "";
-QString User::role       = "";
-bool    User::isDoctor   = true;
-bool    User::isActive   = true;
+User* User::instance=0;

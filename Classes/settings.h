@@ -1,24 +1,28 @@
 #ifndef SETTINGS_H
 #define SETTINGS_H
 #include "QString"
-
+#include "QDir"
+//Singleton class
 class Settings
 {
-    static QString DataBaseConnectionString;
-    static QString TemplateFolderPath;
-    static int LetterPadHeaderHeight;//lines
+
+    static Settings* instance;
+    Settings(){};
+    QString DataBaseConnectionString = QString("E:/ClinicRecords/clinic/Database/clinicrecords.db");
+    QString TemplateFolderPath = QString(QDir::homePath() + "/ClinicRecords/Template");
+    int LetterPadHeaderHeight = 7;//lines
 
 
 public:
-    Settings();
 
-    QString getDataBaseConnectionString();
-    void setDataBaseConnectionString(const QString value);
+    static Settings* getInstance();
 
-    QString getTemplateFolderPath();
-    void setTemplateFolderPath(const QString value);
 
-    int getLetterPadHeaderHeight();
+    QString getDataBaseConnectionString() const;
+    void setDataBaseConnectionString(const QString &value);
+    QString getTemplateFolderPath() const;
+    void setTemplateFolderPath(const QString &value);
+    int getLetterPadHeaderHeight() const;
     void setLetterPadHeaderHeight(int value);
 };
 

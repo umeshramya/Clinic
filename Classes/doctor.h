@@ -2,16 +2,20 @@
 #define DOCTOR_H
 #include "QString"
 
+//Singleton Class
 class Doctor
 {
-    static QString name;
-    static QString qualification;
-    static QString registrationNumber;
-    static QString gender;
-    static QString department;
+    static Doctor* instance;
+    Doctor(){};
+    QString name;
+    QString qualification;
+    QString registrationNumber;
+    QString gender;
+    QString department;
 
 public:
-    Doctor();
+    static Doctor* getInstance();
+
     QString getName() const;
     void setName(const QString &value);
 

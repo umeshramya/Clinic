@@ -1,5 +1,13 @@
 #include "role.h"
 
+Role *Role::getInstance()
+{
+    if(!instance){
+        instance = new Role;
+    }
+    return  instance;
+}
+
 QString Role::getCurRole() const
 {
     return curRole;
@@ -17,8 +25,6 @@ void Role::setCurRole(const QString &value)
 
 }
 
-Role::Role()
-{
-}
 
-QString Role::curRole=QString("Guest");
+
+Role* Role::instance=0;

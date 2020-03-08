@@ -1,27 +1,17 @@
 #include "settings.h"
-#include "QDir"
 
-QString Settings::getDataBaseConnectionString()
-{
-    return DataBaseConnectionString;
-}
 
-void Settings::setDataBaseConnectionString(const QString value)
-{
-    DataBaseConnectionString = value;
-}
-
-QString Settings::getTemplateFolderPath()
+QString Settings::getTemplateFolderPath() const
 {
     return TemplateFolderPath;
 }
 
-void Settings::setTemplateFolderPath(const QString value)
+void Settings::setTemplateFolderPath(const QString &value)
 {
     TemplateFolderPath = value;
 }
 
-int Settings::getLetterPadHeaderHeight()
+int Settings::getLetterPadHeaderHeight() const
 {
     return LetterPadHeaderHeight;
 }
@@ -31,12 +21,22 @@ void Settings::setLetterPadHeaderHeight(int value)
     LetterPadHeaderHeight = value;
 }
 
-Settings::Settings()
+Settings *Settings::getInstance()
 {
-    
+    if(!instance){
+        instance = new Settings;
+    }
+    return instance;
 }
 
+QString Settings::getDataBaseConnectionString() const
+{
+    return DataBaseConnectionString;
+}
 
-QString Settings::DataBaseConnectionString = QString("E:/ClinicRecords/clinic/Database/clinicrecords.db");
-QString Settings::TemplateFolderPath =QString(QDir::homePath() + "/ClinicRecords/Template");
-int Settings::LetterPadHeaderHeight =7;
+void Settings::setDataBaseConnectionString(const QString &value)
+{
+    DataBaseConnectionString = value;
+}
+
+Settings* Settings::instance = 0;
