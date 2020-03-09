@@ -11,12 +11,20 @@ FrmSetting::FrmSetting(QWidget *parent) :
     ui->lineEdi_databaseConnection->setText(setting->getDataBaseConnectionString());
     ui->lineEdit_TemplateFolderPath->setText(setting->getTemplateFolderPath());
     ui->spinBox_LetterpadHeaderLines->setValue(setting->getLetterPadHeaderHeight());
-    QString LetterpadType[7] ={"A4", "A5", "A3"};
-    for (int i =0;i<LetterpadType->length();i++) {
-        ui->comboBox_LetterPadType->addItem(LetterpadType[i]);
+    QStringList LetterpadType;
+    LetterpadType.append("A1");
+    LetterpadType.append("A2");
+    LetterpadType.append("A3");
+    LetterpadType.append("A4");
+    LetterpadType.append("A5");
+    LetterpadType.append("B3");
+    LetterpadType.append("B4");
 
-    }
 
+    ui->comboBox_LetterPadType->addItems(LetterpadType);
+
+
+    ui->comboBox_LetterPadType->setCurrentText("A5");
 
 
 

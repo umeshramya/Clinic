@@ -55,7 +55,11 @@
       <widget class="QLineEdit" name="lineEdit_TemplateFolderPath"/>
      </item>
      <item row="3" column="1">
-      <widget class="QComboBox" name="comboBox_LetterPadType"/>
+      <widget class="QComboBox" name="comboBox_LetterPadType">
+       <property name="editable">
+        <bool>true</bool>
+       </property>
+      </widget>
      </item>
      <item row="4" column="1">
       <layout class="QHBoxLayout" name="horizontalLayout">
