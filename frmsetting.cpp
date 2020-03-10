@@ -13,29 +13,31 @@ FrmSetting::FrmSetting(QWidget *parent) :
     Settings* setting = Settings::getInstance();
 
 
-    QFile settingFile("settingFile.txt");
-    if(!settingFile.open(QFile::ReadOnly| QFile::Text)){
-        settingFile.open(QFile::WriteOnly | QFile::Text);
-        QTextStream out(&settingFile);
+    QFile settingFile("settingFile.txt");//create file inside direct
 
+    if(!settingFile.open(QFile::ReadOnly| QFile::Text)){//check for if exist
+        settingFile.open(QFile::WriteOnly | QFile::Text);//if not exist create new file with defualt6 parametrs
+        QTextStream out(&settingFile);//set write stream for file
         QString fileData =QString(setting->getDataBaseConnectionString() + "\n");
         fileData.append(setting->getTemplateFolderPath() + "\n");
         fileData.append(QString::number(setting->getLetterPadHeaderHeight()) + "\n");
         fileData.append(setting->getLetterpadType() + "\n");
         out << fileData;
-        settingFile.flush();
+        settingFile.flush();//flush after writing into file
+        settingFile.close();//close file
+
+    }else{//if file exist read the content
+        QTextStream in(&settingFile);//create reading stream
+        setting->setDataBaseConnectionString(in.readLine());//read line by line
+        setting->setTemplateFolderPath(in.readLine());
+        setting->setLetterPadHeaderHeight(in.readLine().toInt());
+        setting->setLetterpadType(in.readLine());
         settingFile.close();
+
     }
 
-    settingFile.open(QFile::ReadOnly | QFile::Text);
-    QTextStream in(&settingFile);
 
-    setting->setDataBaseConnectionString(in.readLine());
-    setting->setTemplateFolderPath(in.readLine());
-    setting->setLetterPadHeaderHeight(in.readLine().toInt());
-    setting->setLetterpadType(in.readLine());
 
-    settingFile.close();
 
 
 
