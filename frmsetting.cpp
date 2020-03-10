@@ -67,3 +67,21 @@ FrmSetting::~FrmSetting()
 {
     delete ui;
 }
+
+void FrmSetting::on_pushButton_setSettings_clicked()
+{
+    QFile settingFile("settingFile.txt");
+    settingFile.open(QFile::WriteOnly | QFile::Text);//write to file
+    QTextStream out(&settingFile);//set write stream for file
+
+    QString fileData =QString(ui->lineEdi_databaseConnection->text() + "\n");
+    fileData.append(ui->lineEdit_TemplateFolderPath->text() + "\n");
+    fileData.append(QString::number(ui->spinBox_LetterpadHeaderLines->value()) + "\n");
+    fileData.append(ui->comboBox_LetterPadType->currentText() + "\n");
+
+    out << fileData;
+    settingFile.flush();//flush after writing into file
+    settingFile.close();//close file
+
+
+}
