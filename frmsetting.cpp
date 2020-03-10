@@ -11,6 +11,8 @@ FrmSetting::FrmSetting(QWidget *parent) :
 {
     ui->setupUi(this);
     Settings* setting = Settings::getInstance();
+
+
     QFile settingFile("settingFile.txt");
     if(!settingFile.open(QFile::ReadOnly| QFile::Text)){
         settingFile.open(QFile::WriteOnly | QFile::Text);
