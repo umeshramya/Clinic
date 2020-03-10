@@ -11,6 +11,7 @@ class Settings
     QString DataBaseConnectionString = QString("E:/ClinicRecords/clinic/Database/clinicrecords.db");
     QString TemplateFolderPath = QString(QDir::homePath() + "/ClinicRecords/Template");
     int LetterPadHeaderHeight = 7;//lines
+    QString LetterpadType = "A5";
 
 
 public:
@@ -24,6 +25,8 @@ public:
     void setTemplateFolderPath(const QString &value);
     int getLetterPadHeaderHeight() const;
     void setLetterPadHeaderHeight(int value);
+    QString getLetterpadType() const;
+    void setLetterpadType(const QString &value);
 };
 
 #endif // SETTINGS_H
