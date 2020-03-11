@@ -104,16 +104,25 @@
        </property>
       </widget>
      </item>
+     <item row="9" column="1">
+      <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+     </item>
+     <item row="10" column="1">
+      <widget class="QPushButton" name="pushButton_newUser">
+       <property name="text">
+        <string>Create New User</string>
+       </property>
+      </widget>
+     </item>
      <item row="8" column="1">
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <item>
-        <widget class="QPushButton" name="pushButton_newUser">
-         <property name="text">
-          <string>Create New User</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <widget class="QTextEdit" name="textEdit_address"/>
+     </item>
+     <item row="8" column="0">
+      <widget class="QLabel" name="label_9">
+       <property name="text">
+        <string>Address</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>

@@ -14,9 +14,9 @@ QString SQL::LoginUser()
 
 QString SQL::CreatUser()
 {
-   QString sql("INSERT INTO users (username, password, name, email, mobile, address, doctor)" );
+   QString sql("INSERT INTO users (username, password, name, email, mobile, address, doctor, role)" );
     sql.append(" VALUES ");
-    sql.append("(:username, :password, :name, :email, :mobile, :address, :doctor)");
+    sql.append("(:username, :password, :name, :email, :mobile, :address, :doctor, :role)");
     return  sql;
 }
 
