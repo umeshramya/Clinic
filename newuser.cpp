@@ -24,7 +24,9 @@ void NewUser::on_pushButton_newUser_clicked()
         QString sql =SQL::CreatUser();
 
         query.prepare(sql);
-
+        if(ui->lineEdit_name->text().length() <= 0){
+            throw  QString("username is required");
+        }
 
         QString username = ui->lineEdit_userName->text();
         QString password = ui->lineEdit_password->text();
@@ -35,6 +37,8 @@ void NewUser::on_pushButton_newUser_clicked()
         QString role = ui->comboBox_role->currentText();
         bool isDoctor = ui->checkBox_isDoctor->isChecked();
         QString address = ui->textEdit_address->toPlainText();
+
+
 
 
         if(password.compare(confirmPassword) != 0){
@@ -52,10 +56,13 @@ void NewUser::on_pushButton_newUser_clicked()
         query.bindValue(":doctor", isDoctor);
         query.bindValue(":role", role);
 
-
+        query.exec();
+        DataConnection::getInstance()->closeConnection();
 
     } catch (QString err) {
+        DataConnection::getInstance()->closeConnection();
         QMessageBox::critical(this, "Criticle Error", err);
+
     }
 
 
