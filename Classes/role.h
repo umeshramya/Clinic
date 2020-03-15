@@ -1,13 +1,14 @@
 #ifndef ROLE_H
 #define ROLE_H
 #include "user.h"
+#include "QStringList"
 
 //Singleton Class
 class Role
 {
     static Role* instance;
     Role(){};
-    QString roles[7]={"Admin", "Director", "Doctor", "Accountant", "Receptionist", "Guest"};
+    QStringList roles;
     QString curRole = "Guest";
 
 public:
@@ -16,7 +17,7 @@ public:
     QString getCurRole() const;
     void setCurRole(const QString &value);
 
-    QString getAllRoles();
+    QStringList getAllRoles();
 
 
 };
